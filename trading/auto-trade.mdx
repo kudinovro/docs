@@ -1,0 +1,32 @@
+---
+title: "Auto Trade"
+description: "Automated trading strategies for Polymarket crypto markets"
+---
+
+Tap **Auto Trade** from the main menu to create and manage automated trading tasks.
+
+The dashboard shows all your tasks with their current status:
+
+| Field | Description |
+|---|---|
+| Name | Task name |
+| Module | Strategy type (Crypto or Limit Bids) |
+| Token/Timeframe | e.g. `BTC/5M` |
+| Mode | `paper` (simulated) or `live` (real orders) |
+
+Use **Active** / **Paused** filters to sort tasks. Tap **Manage** on any task to view details and controls.
+
+## Strategy types
+
+<CardGroup cols={2}>
+  <Card title="Crypto Strategy" icon="bitcoin" href="/trading/crypto-strategy">
+    Momentum entries on recurring 5M/15M crypto markets (BTC, ETH, SOL, XRP)
+  </Card>
+  <Card title="Limit Bid Strategy" icon="arrow-down-up-across-line" href="/trading/limit-bid-strategy">
+    Paired YES/NO limit buys for guaranteed edge when both sides fill
+  </Card>
+</CardGroup>
+
+<Warning>
+  Auto Trade can place real orders in Live mode. Always start with **Dry Run** and a small position size before going live.
+</Warning>

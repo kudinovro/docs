@@ -1,0 +1,80 @@
+---
+title: "Limit Bid Strategy"
+description: "Paired YES/NO limit orders for guaranteed edge when both sides fill"
+---
+
+The **Limit Bid strategy** places paired YES (Up) and NO (Down) limit buy orders on the same market simultaneously. If both sides fill at prices that sum to less than 100¢, a guaranteed profit is locked in regardless of the outcome.
+
+Tap **Auto Trade** → **Create Task** → **Limit bid strategy**.
+
+<Warning>
+  Auto Trade can place real orders in Live mode. Start with **Dry Run** and a small position size to validate your settings before going live.
+</Warning>
+
+## How it works
+
+1. The bot places a YES limit order at your **Up limit price** and a NO limit order at your **Down limit price** on the same recurring market
+2. If **both sides fill** → guaranteed edge locked in (e.g. YES at 20¢ + NO at 20¢ = 40¢ total cost, pays out 100¢)
+3. If **only one side fills** → risk management kicks in via Time SL and Stop Loss
+
+## Setup wizard
+
+<Steps>
+  <Step title="Token selection">
+    Toggle the tokens you want to trade. Green = selected, red = deselected.
+
+    Available: **BTC**, **ETH**, **SOL**, **XRP**
+  </Step>
+
+  <Step title="Timeframe">
+    Select the market timeframe: **5M** and/or **15M** recurring crypto markets.
+  </Step>
+
+  <Step title="Mode">
+    | Option | Description |
+    |---|---|
+    | Dry Run | Simulates fills only — no real orders placed |
+    | Live | Places real CLOB orders on your Polymarket wallet |
+  </Step>
+
+  <Step title="Advanced settings">
+    Configure the strategy parameters:
+
+    | Setting | Description |
+    |---|---|
+    | Trade size | USD amount per side (e.g. `$5` per leg, `$10` total) |
+    | Up limit price | Limit price for the YES/Up order (e.g. `0.20$` = 20¢) |
+    | Down limit price | Limit price for the NO/Down order (e.g. `0.20$` = 20¢) |
+    | Total | Combined spend if both legs fill (Up + Down, shown automatically) |
+    | Time stop loss | How long (in seconds/minutes) to wait for the second leg to fill after the first has filled. If this time expires: the open position is closed, the pending limit order is cancelled, and this market is skipped going forward |
+    | Stop loss | How much the first filled leg can drop (in %) before the position is closed while waiting for the second leg to fill |
+    | Daily limit | Maximum USD to spend per day (`$0` = no limit) |
+  </Step>
+
+  <Step title="Review & create">
+    Review all settings in the summary screen, then either:
+
+    - **Start task** — create and immediately activate the task
+    - **Save without starting** — save in paused state
+  </Step>
+</Steps>
+
+## Example configuration
+
+```
+Module:          Limit bids
+Mode:            Dry Run
+Token:           SOL
+Timeframe:       5M
+Position size:   $5
+Up limit:        0.20$ (YES side)
+Down limit:      0.20$ (NO side)
+Total:           0.40$
+Time stop loss:  off
+Stop loss:       50%
+Daily limit:     $0
+```
+
+<Note>
+  The **Total** field (Up + Down) is calculated automatically. For a guaranteed profit, the total must be less than $1.00 (100¢) per contract.
+</Note>

@@ -1,0 +1,88 @@
+---
+title: "Crypto Strategy"
+description: "Momentum-based automated trading on recurring 5M and 15M Polymarket crypto markets"
+---
+
+The **Crypto strategy** places momentum entries on Polymarket's recurring short-term crypto markets (5-minute and 15-minute candles).
+
+Tap **Auto Trade** → **Create Task** → **Crypto strategy**.
+
+<Warning>
+  Auto Trade can place real orders in Live mode. Start with **Dry Run** and a small position size to validate your settings before going live.
+</Warning>
+
+## Setup wizard
+
+<Steps>
+  <Step title="Token selection">
+    Toggle the tokens you want to trade. Green = selected, red = deselected.
+
+    Available tokens: **BTC**, **ETH**, **SOL**, **XRP**
+
+    You can select multiple tokens at once.
+  </Step>
+
+  <Step title="Timeframe">
+    Toggle the market timeframe(s) to trade:
+
+    | Option | Description |
+    |---|---|
+    | 5M | 5-minute recurring crypto markets |
+    | 15M | 15-minute recurring crypto markets |
+
+    You can select both.
+  </Step>
+
+  <Step title="Mode">
+    | Option | Description |
+    |---|---|
+    | Dry Run | Simulates fills only — no real orders placed |
+    | Live | Places real CLOB orders on your Polymarket wallet |
+
+    Start with **Dry Run** to test your strategy settings.
+  </Step>
+
+  <Step title="Advanced settings">
+    | Setting | How it works |
+    |---|---|
+    | **Trade size** | Enter a fixed USD amount per position |
+    | **Sides** | Choose **Up**, **Down**, or **Both** — only one selectable at a time, tap **Save** to confirm |
+    | **Price range** | Min and max contract price (¢) to allow entry — e.g. `5–95¢` |
+    | **Target distance** | Momentum threshold from mid price to trigger entry — choose **% or $**, then enter value |
+    | **Min time left** | Minimum seconds remaining in the market window to enter |
+    | **Max time left** | Maximum seconds remaining in the market window to enter |
+    | **Allow re-entry** | Green = re-entry allowed within the same market window after close |
+    | **Slippage** | Max allowed slippage in cents — e.g. `5¢` |
+    | **Daily limit** | Max USD spend per day — `$0` = no limit |
+    | **Stop loss** | Auto-close on loss — choose **by %** or **by contract price**, then enter value |
+    | **Take profit** | Auto-close on gain — choose **by %** or **by contract price**, then enter value |
+
+    All values are saved and displayed directly on their button after input.
+  </Step>
+
+  <Step title="Review & create">
+    A summary of all settings is shown. You can either:
+
+    - **Start task** — create and immediately activate the task
+    - **Save without starting** — save the task in paused state
+  </Step>
+</Steps>
+
+## Example configuration
+
+```
+Module:              Crypto
+Mode:                Dry Run
+Token:               BTC / XRP / ETH
+Timeframe:           5M
+Position size:       $5
+Side:                Both directions
+Price band:          5–95¢
+Target distance:     0.20%
+Time left window:    0–90 s
+Take profit:         +20%
+Stop loss:           -20%
+Max slippage:        5¢
+Daily limit:         $0
+Re-entry:            Off
+```

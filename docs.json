@@ -1,0 +1,89 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "luma",
+  "name": "Tyche",
+  "logo": {
+    "dark": "/logo/logo.png",
+    "light": "/logo/logo.png"
+  },
+  "favicon": "/logo/favicon.png",
+  "colors": {
+    "primary": "#2600FF",
+    "light": "#7B61FF",
+    "dark": "#1A00CC"
+  },
+  "background": {
+    "dark": "#000000"
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "topbar": {
+    "links": [
+      {
+        "name": "Telegram",
+        "url": "https://t.me/polymarktestbot"
+      }
+    ]
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["index"]
+          },
+          {
+            "group": "Getting Started",
+            "pages": ["getting-started/quickstart"]
+          },
+          {
+            "group": "Wallet",
+            "pages": [
+              "wallet/overview",
+              "wallet/deposit",
+              "wallet/withdraw",
+              "wallet/export-key"
+            ]
+          },
+          {
+            "group": "Portfolio",
+            "pages": ["portfolio/overview"]
+          },
+          {
+            "group": "Trading",
+            "pages": [
+              "trading/buy",
+              "trading/auto-trade",
+              "trading/crypto-strategy",
+              "trading/limit-bid-strategy",
+              "trading/copytrade"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/presets",
+              "features/trending"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "account/referrals",
+              "account/settings"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/tyche",
+      "telegram": "https://t.me/polymarktestbot"
+    }
+  }
+}

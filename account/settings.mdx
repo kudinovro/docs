@@ -1,0 +1,60 @@
+---
+title: "Settings"
+description: "Configure security and language preferences for your Tyche account"
+---
+
+Tap **Settings** from the main menu to access account configuration.
+
+<CardGroup cols={2}>
+  <Card title="Security" icon="lock" href="#security">
+    PIN, 2FA, and withdrawal protection
+  </Card>
+  <Card title="Language" icon="globe" href="#language">
+    Interface language selection
+  </Card>
+</CardGroup>
+
+## Security
+
+Tap **Security** to view and manage your account protection settings.
+
+Current status is displayed at the top:
+- **PIN** — On / Off
+- **2FA** — On / Off
+- **Withdraw policy** — which auth is required to withdraw
+- **Export policy** — which auth is required to export your private key
+
+### PIN
+
+| Action | Description |
+|---|---|
+| Change PIN | Set a new PIN code |
+| PIN Off | Disable PIN protection |
+
+### Two-Factor Authentication (2FA)
+
+Toggle 2FA on or off with the **2FA** button. When enabled, sensitive actions require a one-time code in addition to your PIN.
+
+### Withdraw & Export policies
+
+Set which authentication is required for withdrawals and private key exports independently:
+
+| Option | Description |
+|---|---|
+| Off | No extra authentication required |
+| PIN | Requires your PIN |
+| 2FA | Requires your 2FA code |
+| Both | Requires PIN and 2FA |
+
+<Warning>
+  It is strongly recommended to set both **Withdraw** and **Export** policies to at least **PIN** to protect your funds from unauthorized access.
+</Warning>
+
+## Language
+
+Tap **Language** to change the bot interface language.
+
+Available languages:
+- **English**
+- **Русский** (Russian)
+- **中文** (Chinese)

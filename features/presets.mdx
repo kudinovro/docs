@@ -1,0 +1,95 @@
+---
+title: "Presets"
+description: "Save your trading configuration and apply it instantly when buying via keyword or link"
+---
+
+Presets let you save a complete trading setup — amount, take profit, stop loss, and auto-close — so you don't have to fill it in every time you buy a market.
+
+Tap **Presets** from the main menu to view and manage your presets.
+
+<Note>
+  To use a preset, send a keyword or Polymarket link in chat to find a market, then select your preset to trade instantly.
+</Note>
+
+## Creating a preset
+
+Tap **+ New Preset** and follow the 5-step wizard:
+
+<Steps>
+  <Step title="Step 1 — Name">
+    Enter a name for this preset (1–24 characters).
+
+    Example: `aggressive`, `small_bet`, `default`
+  </Step>
+
+  <Step title="Step 2 — Amount">
+    Choose how the trade amount is defined:
+
+    | Option | Description |
+    |---|---|
+    | Fixed USD | Always trade a fixed dollar amount |
+    | Contracts | Trade a fixed number of contracts |
+    | Ask each time | Prompt for amount on every trade |
+
+    If you select **Fixed USD** or **Contracts**, enter the value in the next prompt.
+  </Step>
+
+  <Step title="Step 3 — Take Profit">
+    Set an automatic take-profit rule:
+
+    | Option | Description |
+    |---|---|
+    | Off | No take-profit |
+    | By % | Close position when profit reaches X% |
+    | By cents | Close position when price moves up by X cents |
+  </Step>
+
+  <Step title="Step 4 — Stop Loss">
+    Set an automatic stop-loss rule:
+
+    | Option | Description |
+    |---|---|
+    | Off | No stop-loss |
+    | By % | Close position when loss reaches X% |
+    | By cents | Close position when price drops by X cents |
+  </Step>
+
+  <Step title="Step 5 — Auto-close">
+    Automatically close the position after a set time:
+
+    | Option | Description |
+    |---|---|
+    | Off | No auto-close |
+    | 30m | Close after 30 minutes |
+    | 60m | Close after 60 minutes |
+    | Custom minutes | Enter a custom duration |
+  </Step>
+</Steps>
+
+## Review & save
+
+After completing all 5 steps, a **Review** screen shows a summary of your preset:
+
+```
+Name:        my_preset
+Amount:      $50.00
+Take Profit: pct 30.00
+Stop Loss:   pct 20.00
+Auto-close:  0 min
+```
+
+Tap **Save** to store the preset.
+
+## Using a preset
+
+Once saved, your preset appears in the Presets list (e.g. `11 (fixed_usd)`).
+
+To trade with it:
+1. Send a **keyword** or **Polymarket link** in chat
+2. Tyche returns matching markets
+3. Select a market and choose your preset
+4. The trade is placed instantly with your saved settings
+
+<Tip>
+  Create multiple presets for different strategies — e.g. a small conservative preset and a larger aggressive one — and switch between them with one tap.
+</Tip>
