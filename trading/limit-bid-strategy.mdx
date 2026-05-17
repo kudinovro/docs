@@ -23,11 +23,11 @@ Tap **Auto Trade** → **Create Task** → **Limit bid strategy**.
   <Step title="Token selection">
     Toggle the tokens you want to trade. Green = selected, red = deselected.
 
-    Available: **BTC**, **ETH**, **SOL**, **XRP**
+    Available: **BTC**, **ETH**, **SOL**, **XRP**, **DOGE**, **HYPE**, **BNB**
   </Step>
 
   <Step title="Timeframe">
-    Select the market timeframe: **5M** and/or **15M** recurring crypto markets.
+    Toggle **5M** and/or **15M** recurring crypto markets. You can select both.
   </Step>
 
   <Step title="Mode">
@@ -38,17 +38,21 @@ Tap **Auto Trade** → **Create Task** → **Limit bid strategy**.
   </Step>
 
   <Step title="Advanced settings">
-    Configure the strategy parameters:
+    The advanced screen groups settings into **Core**, **Filters**, and **Risk**.
 
     | Setting | Description |
     |---|---|
+    | Name | Rename the task |
     | Trade size | USD amount per side (e.g. `$5` per leg, `$10` total) |
     | Up limit price | Limit price for the YES/Up order (e.g. `0.20$` = 20¢) |
     | Down limit price | Limit price for the NO/Down order (e.g. `0.20$` = 20¢) |
     | Total | Combined spend if both legs fill (Up + Down, shown automatically) |
-    | Time stop loss | How long (in seconds/minutes) to wait for the second leg to fill after the first has filled. If this time expires: the open position is closed, the pending limit order is cancelled, and this market is skipped going forward |
-    | Stop loss | How much the first filled leg can drop (in %) before the position is closed while waiting for the second leg to fill |
     | Daily limit | Maximum USD to spend per day (`$0` = no limit) |
+    | Time stop loss | How long (in seconds/minutes) to wait for the second leg to fill after the first has filled. If this time expires: the open position is closed, the pending limit order is cancelled, and this market is skipped going forward |
+    | Time to place bids | How many seconds before a new market opens the bot should place limit bids |
+    | Stop loss | How much the first filled leg can drop before the position is closed while waiting for the second leg to fill, shown as price and percent |
+    | Max DD | Pause the task when realized P&L drops by the selected drawdown from its peak |
+    | Max lose | Pause the task after N consecutive losing trades |
   </Step>
 
   <Step title="Review & create">
@@ -58,6 +62,35 @@ Tap **Auto Trade** → **Create Task** → **Limit bid strategy**.
     - **Save without starting** — save in paused state
   </Step>
 </Steps>
+
+## Managing a limit bid task
+
+Tap **Manage** on a Limit bids task to open its advanced settings.
+
+The task summary shows:
+
+| Section | Fields |
+|---|---|
+| Core | Module, name, mode, token, timeframe, position size, up limit, down limit, total, daily limit |
+| Filters | Time stop loss, time to place bids |
+| Risk | Stop loss |
+| Resources | Link to Tyche Docs |
+
+Use the buttons below the summary to edit individual settings:
+
+| Button | Action |
+|---|---|
+| Name | Rename the task |
+| Trade size | Change the position size |
+| Up limit | Change the YES/Up limit price |
+| Down limit | Change the NO/Down limit price |
+| Daily | Set max daily spend |
+| Time SL | Change the time stop loss |
+| Stop | Change the stop loss rule; the button shows the current percent, e.g. `Stop: 50%` |
+| Time to place bids | Choose when bids are placed before a new market opens |
+| Max DD | Pause on realized P&L drawdown; `Off` disables it |
+| Max lose | Pause after consecutive losing trades; `Off` disables it |
+| Next | Continue to review |
 
 ## Example configuration
 
@@ -70,11 +103,22 @@ Position size:   $5
 Up limit:        0.20$ (YES side)
 Down limit:      0.20$ (NO side)
 Total:           0.40$
-Time stop loss:  off
-Stop loss:       50%
-Daily limit:     $0
+Time stop loss:   off
+Time to place:    off
+Stop loss:        0.10$ / 50%
+Daily limit:      $0
+Max PnL drawdown: Off
+Max losing trades: Off
 ```
 
 <Note>
   The **Total** field (Up + Down) is calculated automatically. For a guaranteed profit, the total must be less than $1.00 (100¢) per contract.
 </Note>
+
+## Time to place bids
+
+Use **Time to place bids** to set how many seconds before a new market opens the system should place limit bids for that market.
+
+Example: if the market opens at `13:05:00` and the setting is `30s`, bids are placed at `13:04:30`.
+
+Preset options include **off**, **15s**, **30s**, **60s**, **120s**, **300s**, and **Custom**.

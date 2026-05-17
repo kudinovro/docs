@@ -17,7 +17,7 @@ Tap **Auto Trade** → **Create Task** → **Crypto strategy**.
   <Step title="Token selection">
     Toggle the tokens you want to trade. Green = selected, red = deselected.
 
-    Available tokens: **BTC**, **ETH**, **SOL**, **XRP**
+    Available tokens: **BTC**, **ETH**, **SOL**, **XRP**, **DOGE**, **HYPE**, **BNB**
 
     You can select multiple tokens at once.
   </Step>
@@ -43,8 +43,11 @@ Tap **Auto Trade** → **Create Task** → **Crypto strategy**.
   </Step>
 
   <Step title="Advanced settings">
+    The advanced screen groups settings into **Core**, **Filters**, and **Risk**.
+
     | Setting | How it works |
     |---|---|
+    | **Name** | Rename the task |
     | **Trade size** | Enter a fixed USD amount per position |
     | **Sides** | Choose **Up**, **Down**, or **Both** — only one selectable at a time, tap **Save** to confirm |
     | **Price range** | Min and max contract price (¢) to allow entry — e.g. `5–95¢` |
@@ -56,6 +59,8 @@ Tap **Auto Trade** → **Create Task** → **Crypto strategy**.
     | **Daily limit** | Max USD spend per day — `$0` = no limit |
     | **Stop loss** | Auto-close on loss — choose **by %** or **by contract price**, then enter value |
     | **Take profit** | Auto-close on gain — choose **by %** or **by contract price**, then enter value |
+    | **Max DD** | Pause the task when realized P&L drops by the selected drawdown from its peak |
+    | **Max lose** | Pause the task after N consecutive losing trades |
 
     All values are saved and displayed directly on their button after input.
   </Step>
@@ -67,6 +72,38 @@ Tap **Auto Trade** → **Create Task** → **Crypto strategy**.
     - **Save without starting** — save the task in paused state
   </Step>
 </Steps>
+
+## Managing a crypto task
+
+Tap **Manage** on a Crypto task to open its advanced settings.
+
+The task summary shows:
+
+| Section | Fields |
+|---|---|
+| Core | Module, name, mode, selected tokens, selected timeframes |
+| Filters | Side, target distance, price range, time left window |
+| Risk | Position size, TP / SL, max slippage, daily limit, re-entry |
+| Resources | Link to Tyche Docs |
+
+Use the buttons below the summary to edit individual settings:
+
+| Button | Action |
+|---|---|
+| Name | Rename the task |
+| Trade size | Change the position size |
+| Sides | Choose Up, Down, or Both |
+| Price range | Set min and max contract price |
+| Target dist. | Change the momentum entry threshold |
+| Min time left | Set the minimum time remaining before entry |
+| Max time left | Set the maximum time remaining before entry |
+| Re-entry | Toggle re-entry within the same market window |
+| Slippage | Change max allowed slippage |
+| Daily limit | Set max daily spend |
+| Stop loss | Change the stop loss rule |
+| Take profit | Change the take profit rule |
+| Max DD | Pause on realized P&L drawdown |
+| Max lose | Pause after consecutive losing trades |
 
 ## Example configuration
 
@@ -85,4 +122,12 @@ Stop loss:           -20%
 Max slippage:        5¢
 Daily limit:         $0
 Re-entry:            Off
+Max PnL drawdown:    Off
+Max losing trades:   Off
 ```
+
+## Risk controls
+
+Use **Max DD** to pause the task when realized P&L drops by a selected amount from its peak. Choose a drawdown by percent, by dollar amount, **Off**, **Custom %**, or **Custom $**. `0` means off.
+
+Use **Max lose** to pause the task after consecutive losing trades. Preset options include **2**, **3**, **5**, **10**, **Off**, and **Custom**. `0` means off.

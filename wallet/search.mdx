@@ -1,0 +1,225 @@
+---
+title: "Wallet Search"
+description: "Find wallets for copytrading or analyze any Polymarket wallet in detail"
+---
+
+Tap **Wallet Search** from the main menu to open **Wallet Search & Analyze**.
+
+Use this section to find wallets for copytrading, review wallet performance, or analyze any Polymarket wallet.
+
+<Note>
+  Wallet metrics are based on Falcon-style wallet analytics. Metric definitions follow [Falcon Wallet 360](https://falcon-bot.gitbook.io/falcon-api/market-intelligence/falcon-wallet-360), [Top Traders](https://falcon-bot.gitbook.io/falcon-api/traders/top-traders), and [Falcon Leaderboard API](https://falcon-bot.gitbook.io/falcon-api/market-intelligence/falcon-leaderboard-api).
+</Note>
+
+## Main actions
+
+| Button | Description |
+|---|---|
+| Search Wallets | Discover wallets that match your copytrading filters |
+| Analyze Wallet | Analyze a specific wallet address |
+| Back | Return to the previous screen |
+| Home | Return to the main menu |
+
+## Search Wallets
+
+Tap **Search Wallets** to set filters and discover wallets that fit your strategy.
+
+The filter screen shows:
+
+| Filter | Description |
+|---|---|
+| Period | Ranking window: **1D**, **3D**, **7D**, or **30D** |
+| Min Profit | Minimum realized profit |
+| Max Profit | Maximum realized profit |
+| Min Success Rate | Minimum winning-trade rate |
+| Max Success Rate | Maximum winning-trade rate |
+| Min Stability Score | Minimum risk-adjusted consistency score |
+| Max Stability Score | Maximum risk-adjusted consistency score |
+| Min ROI | Minimum return on investment |
+| Min Trades | Minimum executed trades |
+| Max Trades | Maximum executed trades |
+| Updated | Timestamp of the latest search data refresh |
+
+Use **Run Search** to apply filters, or **Reset Filters** to clear them.
+
+### Stability Score filter
+
+Tap **Min Stability** or **Max Stability** to pick a preset, type a custom value, or clear the filter.
+
+| Option | Description |
+|---|---|
+| 0.5 | Include weak / unstable wallets and above |
+| 1.0 | Good minimum stability |
+| 2.0 | Strong minimum stability |
+| 3.0 | Very strong stability, but review carefully |
+| Custom | Enter a custom score |
+| Clear | Remove the stability filter |
+
+## Search results
+
+Each wallet result shows:
+
+| Field | Description |
+|---|---|
+| Wallet | Polymarket wallet address |
+| Profit | Total realized profit and loss |
+| Success Rate | Percentage of profitable trades |
+| ROI | Return on investment |
+| Stability Score | Risk-adjusted consistency score |
+| Updated | Timestamp of the latest results refresh |
+
+From each result:
+
+| Action | Description |
+|---|---|
+| Analyze | Open detailed wallet analysis |
+| Copytrade | Start a copytrade subscription for this wallet |
+
+## Analyze Wallet
+
+Tap **Analyze Wallet** to review a specific wallet.
+
+Send a wallet address as a message, choose a timeframe, then tap **Analyze**.
+
+| Button | Description |
+|---|---|
+| 1D | Analyze the last 1 day |
+| 3D | Analyze the last 3 days |
+| 7D | Analyze the last 7 days |
+| 15D | Analyze the last 15 days |
+| Analyze | Run wallet analysis |
+
+## Wallet Analysis
+
+The overview screen shows:
+
+| Field | Description |
+|---|---|
+| Profit | Total realized profit and loss |
+| ROI | Return on investment |
+| Success Rate | Percentage of profitable trades |
+| Trades | Total number of executed trades |
+| Markets | Number of unique markets traded |
+| Last Active | Most recent wallet activity |
+| Risk Level | Falcon risk classification, such as **LOW**, **MEDIUM**, or **HIGH** |
+| Updated | Timestamp of the latest analysis refresh |
+
+Use **Copytrade** to create a copytrade subscription for the analyzed wallet.
+
+## Analysis sections
+
+<CardGroup cols={2}>
+  <Card title="PnL & Performance" icon="chart-line" href="#pnl-performance">
+    Profitability, ROI, invested capital, wins, losses, and average trade quality
+  </Card>
+  <Card title="Trades" icon="receipt" href="#recent-trades">
+    Recent market trades with side, outcome, price, size, and time
+  </Card>
+  <Card title="Risk Metrics" icon="shield" href="#risk-metrics">
+    Drawdown, stability, recovery, and profit-quality metrics
+  </Card>
+  <Card title="Behavior" icon="brain" href="#trading-behavior">
+    Activity, position sizing, edge decay, and equity curve behavior
+  </Card>
+  <Card title="Risk Flags" icon="siren" href="#risk-flags">
+    Warning signals that may affect copytrading quality
+  </Card>
+  <Card title="Categories" icon="folder" href="#categories-market-focus">
+    Category diversity and market concentration
+  </Card>
+</CardGroup>
+
+### PnL & Performance
+
+This section summarizes overall wallet performance, trading efficiency, and profit quality.
+
+| Metric | Description |
+|---|---|
+| Profit | Total realized profit and loss |
+| ROI | Profit relative to invested capital |
+| Invested | Total capital invested |
+| Trades | Total number of executed trades |
+| Wins | Number of profitable trades |
+| Losses | Number of losing trades |
+| Success Rate | Wins divided by total closed trades |
+| Avg Trade Size | Average position size per trade |
+| Avg Profit per Trade | Average realized profit per trade |
+
+### Recent Trades
+
+Recent trades show the latest wallet activity.
+
+| Field | Description |
+|---|---|
+| Market | Polymarket market slug |
+| Side | **BUY** or **SELL** |
+| Outcome | Outcome traded, such as Yes/Up or No/Down |
+| Price | Trade price |
+| Size | Trade size in USD |
+| Time | Trade timestamp in UTC |
+
+### Risk Metrics
+
+This section shows the core risk profile, drawdown quality, and recovery behavior.
+
+| Metric | Description |
+|---|---|
+| Max Drawdown | Largest peak-to-trough decline |
+| Stability Score | Risk-adjusted consistency score. Higher usually means steadier returns relative to risk |
+| Downside Stability | Downside risk-adjusted return, based on Sortino-style analysis |
+| Drawdown Efficiency | Return relative to maximum drawdown, based on Calmar-style analysis |
+| Profit Factor | Gross profit divided by gross loss |
+| Pain Index | Drawdown severity index |
+| Recovery Time | Average time needed to recover from drawdowns |
+| Drawdown Frequency | How often drawdowns occur |
+
+<Tip>
+  For **Stability Score**, use the guide shown in the bot: below `1.0` = weak / unstable, `1.0–2.0` = good, `2.0–3.0` = strong, and above `3.0` = very strong but worth checking carefully.
+</Tip>
+
+### Trading Behavior
+
+This section shows how stable, active, and disciplined the wallet behaves over time.
+
+| Metric | Description |
+|---|---|
+| Performance Trend | Whether performance is improving, stable, or declining |
+| Days Active | Number of active trading days in the selected window |
+| Last Active | Most recent wallet activity timestamp |
+| Avg Position Size | Average position size |
+| Position Size Consistency | How consistently the wallet sizes positions |
+| Trade Size Volatility | Variation in trade sizes |
+| Edge Decay | Whether strategy performance is degrading over time |
+| Equity Curve | Shape of the wallet's equity curve, such as stable or volatile |
+| Activity Pattern | Summary of activity behavior, when available |
+
+### Risk Flags
+
+Risk flags highlight suspicious patterns that may affect copytrading quality.
+
+| Flag | Description |
+|---|---|
+| Risk Level | Overall risk classification |
+| Combined Risk Score | Aggregate behavioral risk score |
+| Suspicious Win Rate | Whether the win rate is statistically suspicious |
+| Timing Anomaly | Whether anomalous timing behavior was detected |
+| Sybil Risk | Whether coordinated or Sybil-like behavior was detected |
+| Perfect Timing Flag | Whether timing performance is statistically abnormal |
+| Single-Market Dependence | Whether returns depend heavily on one market |
+| Position Size Volatility | Whether position sizing is unusually volatile |
+| Statistical Confidence | Confidence level of the statistical evaluation |
+
+### Categories & Market Focus
+
+This section shows where the wallet performs best and how diversified its trading is.
+
+| Metric | Description |
+|---|---|
+| Category Diversity | Diversification score across market categories |
+| Dominant Market | Market contributing the most P&L |
+| Dominant Market PnL | P&L from the dominant market |
+| Market Concentration | Share of returns concentrated in the top market |
+
+<Warning>
+  A wallet with high profit but very high market concentration may depend on one market or one lucky outcome. Review risk flags before copying.
+</Warning>

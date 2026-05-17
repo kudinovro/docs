@@ -5,29 +5,35 @@ description: "Automatically mirror the trades of top Polymarket wallets in real 
 
 Tap **Copytrade** from the main menu to view and manage your copy trading subscriptions.
 
-The dashboard shows all traders you follow with their live stats:
+The dashboard shows how many traders you are following and the latest realized stats for each subscription.
+
+<Note>
+  P&L is realized only: closed round-trips and settlements are included. Open positions are not included.
+</Note>
 
 | Field | Description |
 |---|---|
+| Name | Subscription nickname |
 | Mode | Paper / Monitor / Live |
 | Trades (legs) | Total number of trade legs executed |
 | Wins / Losses | Closed profitable vs. losing positions |
 | Win rate | Percentage of winning trades |
 | Volume | Total traded volume in USD |
-| P&L | Realized profit/loss (closed round-trips & settlements only) |
+| P&L | Realized profit/loss |
+| Updated | Timestamp of the latest dashboard refresh |
 
-Use the filter buttons — **All**, **Active**, **Paused** — to sort your subscriptions.
+Use **Manage** to edit a subscription, **Start** to activate a paused subscription, or **Delete** to remove it.
 
 ## Modes
 
 Choose how you want to follow a trader:
 
 <CardGroup cols={3}>
-  <Card title="Monitor" icon="bell">
-    Notifications only. No trades are placed. Use this to watch a trader before committing funds.
-  </Card>
   <Card title="Paper" icon="file">
     Simulated trades. Tracks what would have happened with real settings, but no real money is used.
+  </Card>
+  <Card title="Monitor" icon="bell">
+    Notifications only. No trades are placed. Use this to watch a trader before committing funds.
   </Card>
   <Card title="Live" icon="circle-dot">
     Real orders placed with your funds. Requires explicit confirmation before enabling.
@@ -36,10 +42,10 @@ Choose how you want to follow a trader:
 
 ## Creating a subscription
 
-Tap **Create Copy Task** and follow the wizard:
+Tap **New Subscription** and follow the 4-step wizard:
 
 <Steps>
-  <Step title="Step 1 — Trader wallet address">
+  <Step title="Step 1 — Wallet address">
     Enter the Polymarket wallet address you want to copy.
 
     Example: `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`
@@ -52,77 +58,49 @@ Tap **Create Copy Task** and follow the wizard:
   </Step>
 
   <Step title="Step 3 — Mode">
-    Select **Monitor**, **Paper**, or **Live**.
+    Select **Paper**, **Monitor**, or **Live**.
+
+    | Mode | Description |
+    |---|---|
+    | Paper | Virtual trades only, no real orders |
+    | Monitor | Alerts only, no trades |
+    | Live | Real trades with your wallet |
 
     <Warning>
-      Selecting **Live** will place real orders with real funds. You will be asked to confirm again before the subscription starts.
+      Selecting **Live** will place real orders with real funds. You will be asked to confirm with **Enable Live** or switch back with **Keep Paper**.
     </Warning>
   </Step>
 
-  <Step title="Steps 4–8 — Settings (Paper & Live only)">
-    Configure the trading behaviour. Monitor mode skips directly to alerts.
+  <Step title="Step 4 — Settings">
+    Configure the subscription behaviour.
 
-    **Core**
     | Setting | Description |
     |---|---|
-    | Size | How much to trade relative to the copied trader (see below) |
-    | Follow Buys | Copy the trader's buy orders |
-    | Copy Sells | Copy the trader's sell/close orders |
-    | Outcome | Filter by Yes/Up, No/Down, or All outcomes |
-    | Categories | Filter by market category or copy all |
-
-    **Trade size options:**
-
-    | Type | Description |
-    |---|---|
-    | Fixed USD | Always trade a fixed dollar amount, regardless of the trader's size |
-    | % of Whale | A multiplier of the trader's own position size |
-
-    For **% of Whale**, choose a preset or enter a custom value:
-    - `0.5x` — trade half the size of the copied trader
-    - `1x` — match the trader's size exactly
-    - `2x` — trade double the trader's size
-
-    **Limits**
-    | Setting | Description |
-    |---|---|
+    | Size | How much to trade relative to the copied trader, e.g. `1.0x` |
+    | Trade alerts | Notify when the trader places a trade |
+    | Limit alerts | Notify when a copied limit order is triggered |
     | Min Buy | Minimum order size to copy |
     | Max Buy | Maximum order size to copy |
     | Max Spend Per Market | Cap on total spend per single market |
     | Daily Spend | Cap on total daily spend |
-
-    **Filters**
-    | Setting | Description |
-    |---|---|
     | Slippage | Max allowed slippage (default: 5%) |
-    | Price range | Only copy trades within a price band |
-    | Min / Max price | Token price floor/ceiling |
-    | Min liq / Min vol | Minimum market liquidity / volume |
     | Max Days Out | Skip markets expiring beyond X days |
+    | Min Liq | Minimum market liquidity |
+    | Min Vol | Minimum market volume |
+    | Min Price | Minimum contract price to copy |
+    | Max Price | Maximum contract price to copy |
+    | Categories | Market categories to copy, or all categories |
+    | Follow Buys | Copy the trader's buy orders |
+    | Copy Sells | Copy the trader's sell trades |
+    | Outcome | Filter by Yes/Up, No/Down, or all outcomes |
+    | Stop Loss | Auto-close copied position at a loss threshold |
+    | Take Profit | Auto-close copied position at a profit threshold |
+    | Max task PnL drawdown | Pause the subscription when realized P&L drops from its peak |
+    | Max consecutive losing exits | Pause after consecutive losing exits |
+    | Successful fills | Notify when your copied order fills |
+    | Failed fills | Notify when a copied order fails |
 
-    **Risk**
-    | Setting | Description |
-    |---|---|
-    | Stop Loss | Auto-close copied position at X% loss or X cents |
-    | Take Profit | Auto-close copied position at X% gain or X cents |
-  </Step>
-
-  <Step title="Step 8 — Alerts">
-    Toggle notifications for this subscription:
-
-    - **Trade alerts** — notify when the trader places a trade
-    - **Limit alerts** — notify when a limit order is triggered
-    - **Successful fills** *(Live only)* — notify when your copied order fills
-    - **Failed fills** *(Live only)* — notify when a copied order fails
-  </Step>
-
-  <Step title="Step 9 — Review & Confirm">
-    Review the full summary of your subscription settings, then tap **Confirm**.
-
-    For Live mode, an additional confirmation screen appears:
-    > "Real orders will be placed. Continue?"
-
-    Tap **Enable Live** to proceed or **Keep Paper** to stay in paper mode.
+    New subscriptions default **Copy Sells** to on. Turn it off if you only want to follow buys.
   </Step>
 </Steps>
 

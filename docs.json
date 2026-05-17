@@ -46,7 +46,8 @@
               "wallet/overview",
               "wallet/deposit",
               "wallet/withdraw",
-              "wallet/export-key"
+              "wallet/export-key",
+              "wallet/search"
             ]
           },
           {
