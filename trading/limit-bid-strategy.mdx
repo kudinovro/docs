@@ -43,10 +43,10 @@ Tap **Auto Trade** → **Create Task** → **Limit bid strategy**.
     | Setting | Description |
     |---|---|
     | Name | Rename the task |
-    | Trade size | USD amount per side (e.g. `$5` per leg, `$10` total) |
+    | Trade size | Position size for each limit order |
     | Up limit price | Limit price for the YES/Up order (e.g. `0.20$` = 20¢) |
     | Down limit price | Limit price for the NO/Down order (e.g. `0.20$` = 20¢) |
-    | Total | Combined spend if both legs fill (Up + Down, shown automatically) |
+    | Total | Combined limit price for both sides (Up limit + Down limit, shown automatically) |
     | Daily limit | Maximum USD to spend per day (`$0` = no limit) |
     | Time stop loss | How long (in seconds/minutes) to wait for the second leg to fill after the first has filled. If this time expires: the open position is closed, the pending limit order is cancelled, and this market is skipped going forward |
     | Time to place bids | How many seconds before a new market opens the bot should place limit bids |
@@ -81,7 +81,7 @@ Use the buttons below the summary to edit individual settings:
 | Button | Action |
 |---|---|
 | Name | Rename the task |
-| Trade size | Change the position size |
+| Trade size | Change the position size for each limit order |
 | Up limit | Change the YES/Up limit price |
 | Down limit | Change the NO/Down limit price |
 | Daily | Set max daily spend |
@@ -112,7 +112,7 @@ Max losing trades: Off
 ```
 
 <Note>
-  The **Total** field (Up + Down) is calculated automatically. For a guaranteed profit, the total must be less than $1.00 (100¢) per contract.
+  The **Total** field is calculated automatically from **Up limit + Down limit**. For a guaranteed edge, the total must be less than $1.00 (100¢) per contract.
 </Note>
 
 ## Time to place bids

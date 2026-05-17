@@ -46,9 +46,12 @@
               "wallet/overview",
               "wallet/deposit",
               "wallet/withdraw",
-              "wallet/export-key",
-              "wallet/search"
+              "wallet/export-key"
             ]
+          },
+          {
+            "group": "Wallet Search",
+            "pages": ["wallet/search"]
           },
           {
             "group": "Portfolio",
@@ -84,7 +87,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/tyche_terminal",
+      "x": "https://x.com/TycheTerminal",
       "telegram": "https://t.me/tyche_community"
     }
   }
