@@ -1,6 +1,6 @@
 ---
 title: "Auto Trade"
-description: "Automated trading strategies for Polymarket crypto markets"
+description: "Automated trading strategies for recurring Polymarket markets"
 ---
 
 Tap **Auto Trade** from the main menu to create and manage automated trading tasks.
@@ -19,8 +19,8 @@ Each task shows:
 | Mode | Dry Run or Live |
 | Module | Strategy type |
 | Trades (legs) | Total number of trade legs executed |
-| Assets | Tokens traded by the task |
-| Timeframes | Recurring market timeframes |
+| Assets | Tokens or market scope traded by the task |
+| Timeframes | Recurring market timeframes, when applicable |
 | Win rate | Percentage of winning closed trades |
 | Volume | Realized traded volume in USD |
 | P&L | Realized profit/loss |
@@ -36,7 +36,14 @@ Use **Manage** to edit a task, **Start** to activate a paused task, or **Delete*
   <Card title="Limit Bid Strategy" icon="arrow-down-up-across-line" href="/trading/limit-bid-strategy">
     Paired YES/NO limit buys for guaranteed edge when both sides fill
   </Card>
+  <Card title="Weather Strategy" icon="cloud-sun" href="/trading/weather-strategy">
+    Automated entries on city-by-city daily high/low temperature markets
+  </Card>
 </CardGroup>
+
+<Note>
+  The Weather module currently supports only daily **high** and **low** temperature markets.
+</Note>
 
 <Warning>
   Auto Trade can place real orders in Live mode. Always start with **Dry Run** and a small position size before going live.

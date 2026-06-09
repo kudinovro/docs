@@ -58,20 +58,31 @@
             "pages": ["portfolio/overview"]
           },
           {
+            "group": "Markets",
+            "pages": [
+              "markets/overview",
+              "markets/trending"
+            ]
+          },
+          {
+            "group": "Limit Orders",
+            "pages": ["limit-orders/overview"]
+          },
+          {
             "group": "Trading",
             "pages": [
               "trading/buy",
               "trading/auto-trade",
               "trading/crypto-strategy",
               "trading/limit-bid-strategy",
+              "trading/weather-strategy",
               "trading/copytrade"
             ]
           },
           {
             "group": "Features",
             "pages": [
-              "features/presets",
-              "features/trending"
+              "features/presets"
             ]
           },
           {

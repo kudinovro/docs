@@ -1,0 +1,125 @@
+---
+title: "Weather Strategy"
+description: "Automated trading on daily high/low temperature markets"
+---
+
+The **Weather strategy** trades city-by-city daily high/low temperature markets.
+
+Tap **Auto Trade** → **Create Task** → **Weather**.
+
+<Warning>
+  Weather Auto Trade is limited to daily **high** and **low** temperature markets. It does not trade every weather-related Polymarket category.
+</Warning>
+
+<Warning>
+  Auto Trade can place real orders in Live mode. Start with **Dry Run** and a small position size to validate your settings before going live.
+</Warning>
+
+## Setup wizard
+
+<Steps>
+  <Step title="Strategy type">
+    Choose **Weather** from the strategy type screen.
+
+    Weather creates entries on city-by-city daily temperature markets.
+  </Step>
+
+  <Step title="Advanced settings">
+    The advanced screen groups settings into **Core**, **Filters**, and **Risk**.
+
+    | Setting | Description |
+    |---|---|
+    | **Cities** | Choose all cities or a specific city set |
+    | **Types** | Choose **HIGH**, **LOW**, or both |
+    | **Mode** | Use **Dry Run** for simulated fills or **Live** for real orders |
+    | **Name** | Rename the task |
+    | **Trade size** | Enter a fixed USD amount per position |
+    | **Sides** | Choose **YES**, **NO**, or both |
+    | **Price range** | Min and max contract price (¢) to allow entry |
+    | **Slippage** | Max allowed slippage in percent |
+    | **Re-entry** | Allow or block another entry in the same market after close |
+    | **Stop loss** | Auto-close on loss |
+    | **Take profit** | Auto-close on gain |
+    | **Vol min / Vol max** | Minimum and maximum market volume filters |
+    | **Liq min / Liq max** | Minimum and maximum liquidity filters |
+    | **Min time left** | Minimum time remaining before entry |
+    | **Max time left** | Maximum time remaining before entry |
+    | **Days** | How many upcoming daily markets to scan |
+    | **Max spread** | Maximum allowed spread in cents |
+    | **Max DD** | Pause the task when realized P&L drops by the selected drawdown from its peak |
+    | **Max lose** | Pause the task after N consecutive losing trades |
+    | **Daily limit** | Max USD spend per day |
+
+    All values are saved and displayed directly on their button after input.
+  </Step>
+
+  <Step title="Review & create">
+    Review all Weather settings, then either:
+
+    - **Start task** — create and immediately activate the task
+    - **Save without starting** — save the task in paused state
+  </Step>
+</Steps>
+
+## Managing a weather task
+
+Tap **Manage** on a Weather task to open its advanced settings.
+
+The task summary shows:
+
+| Section | Fields |
+|---|---|
+| Core | Cities, types, sides, name, trade size, price range, re-entry |
+| Filters | Slippage, min time left, max time left |
+| Risk | Take profit, stop loss, max DD, max lose, daily limit |
+| Resources | Link to Tyche Docs |
+
+Use the buttons below the summary to edit individual settings:
+
+| Button | Action |
+|---|---|
+| Cities | Choose all cities or select specific cities |
+| Types | Choose HIGH, LOW, or both |
+| Mode | Switch between Dry Run and Live |
+| Name | Rename the task |
+| Trade size | Change the position size |
+| Sides | Choose YES, NO, or both |
+| Price range | Set min and max contract price |
+| Slippage | Change max allowed slippage |
+| Re-entry | Toggle re-entry after close |
+| Stop loss | Change the stop loss rule |
+| Take profit | Change the take profit rule |
+| Vol min / Vol max | Set market volume bounds |
+| Liq min / Liq max | Set liquidity bounds |
+| Min time left | Set the minimum time remaining before entry |
+| Max time left | Set the maximum time remaining before entry |
+| Days | Choose how many upcoming daily markets to scan |
+| Max spread | Set the maximum allowed spread in cents |
+| Max DD | Pause on realized P&L drawdown |
+| Max lose | Pause after consecutive losing trades |
+| Daily limit | Set max daily spend |
+| Next | Continue to review |
+
+## Example configuration
+
+```
+Module:          Weather
+Mode:            Dry Run
+Cities:          All cities
+Types:           HIGH, LOW
+Sides:           YES, NO
+Name:            Weather task
+Trade size:      $5
+Price range:     75–90¢
+Slippage:        2%
+Min time left:   Off
+Max time left:   4h
+Days:            3d
+Max spread:      5¢
+Take profit:     Off
+Stop loss:       Off
+Max DD:          Off
+Max lose:        Off
+Daily limit:     Off
+Re-entry:        Off
+```
